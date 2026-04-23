@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Badhenchwoman Ting (Senior Level) – VillainCorp™</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0f0f1a;
+      color: #e0e0e0;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* top nav bar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 0.5px solid #2a2a3a;
+      margin-bottom: 2rem;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-box {
+      width: 34px;
+      height: 34px;
+      background: #cc2222;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-box svg { display: block; }
+
+    .logo-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.3px;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar-links a {
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+    }
+
+    /* company header */
+    .company-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 2rem;
+    }
+
+    .company-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      background: #1a1a2e;
+      border: 0.5px solid #2a2a3a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .company-name {
+      font-size: 13px;
+      color: #cc2222;
+      font-weight: 500;
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+
+    .job-title {
+      font-size: 26px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .job-meta {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* urgent badge */
+    .badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-urgent {
+      background: #cc2222;
+      color: #fff;
+    }
+
+    .badge-pill {
+      background: #1a1a2e;
+      color: #888;
+      border: 0.5px solid #2a2a3a;
+    }
+
+    /* apply button */
+    .apply-btn {
+      display: inline-block;
+      background: #cc2222;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 28px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 2rem;
+      transition: background 0.15s;
+    }
+
+    .apply-btn:hover { background: #aa1b1b; }
+
+    /* divider */
+    .divider {
+      border: none;
+      border-top: 0.5px solid #2a2a3a;
+      margin: 1.5rem 0;
+    }
+
+    /* sections */
+    .section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-body {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    /* bullet list */
+    .bullet-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .bullet-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .bullet-arrow {
+      color: #cc2222;
+      font-size: 16px;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+
+    .bullet-text {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+
+    /* benefit cards */
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .benefit-card {
+      background: #1a1a2e;
+      border: 0.5px solid #2a2a3a;
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+
+    .benefit-label {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .benefit-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: #ddd;
+    }
+
+    /* CTA bottom */
+    .cta-box {
+      background: #1a1a2e;
+      border: 0.5px solid #2a2a3a;
+      border-radius: 14px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .cta-label {
+      font-size: 12px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .cta-main {
+      font-size: 20px;
+      font-weight: 600;
+      color: #cc2222;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .cta-sub {
+      font-size: 12px;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #cc2222;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      padding: 12px 40px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+
+    .cta-btn:hover { background: #aa1b1b; transform: scale(1.02); }
+    .cta-btn:active { transform: scale(0.98); }
+
+    /* modal overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      background: #1a1a2e;
+      border: 0.5px solid #2a2a3a;
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .modal-emoji { font-size: 48px; margin-bottom: 1rem; }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .modal-body {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-close {
+      background: #cc2222;
+      color: #fff;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 11px;
+      color: #444;
+      margin-top: 3rem;
+      padding-bottom: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      .job-title { font-size: 20px; }
+      .navbar-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- navbar -->
+    <nav class="navbar">
+      <div class="navbar-logo">
+        <div class="logo-box">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L13 7H17L14 11L15.5 16L10 13L4.5 16L6 11L3 7H7L10 2Z" fill="#fff"/>
+          </svg>
+        </div>
+        <span class="logo-text">VillainCorp™ Careers</span>
+      </div>
+      <div class="navbar-links">
+        <a href="#">Jobs</a>
+        <a href="#">About</a>
+        <a href="#">Sign in</a>
+      </div>
+    </nav>
+
+    <!-- company + title -->
+    <div class="company-header">
+      <div class="company-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="13" r="6" fill="#cc2222"/>
+          <path d="M7 36c0-7.2 5.8-13 13-13s13 5.8 13 13" stroke="#cc2222" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M27 8 L32 4 M13 8 L8 4" stroke="#cc2222" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <div class="company-name">VillainCorp™ · Psychology Division</div>
+        <div class="job-title">Badhenchwoman Ting<br/>(Senior Level)</div>
+        <div class="job-meta">On-site &nbsp;·&nbsp; Full Evening &nbsp;·&nbsp; 1-night contract</div>
+      </div>
+    </div>
+
+    <!-- badges -->
+    <div class="badge-row">
+      <span class="badge badge-urgent">URGENT HIRE</span>
+      <span class="badge badge-pill">Competitive benefits</span>
+      <span class="badge badge-pill">Snacks included</span>
+      <span class="badge badge-pill">Evil-adjacent</span>
+    </div>
+
+    <a class="apply-btn" href="#" onclick="openModal(event)">Apply Now</a>
+
+    <hr class="divider"/>
+
+    <!-- about -->
+    <div class="section-title">About the role</div>
+    <p class="section-body">
+      We are seeking a highly motivated, evil-adjacent individual to fill the critical role of
+      Prom Date &amp; Chief Henchperson for the evening of Psych Prom 2026.
+    </p>
+    <p class="section-body">
+      After an exhaustive review of candidates, your henchman profile has come to our attention.
+      Badhenchman ting seeks badhenchwoman ting for joint operations.
+      You are uniquely qualified for this position.
+    </p>
+
+    <hr class="divider"/>
+
+    <!-- responsibilities -->
+    <div class="section-title">Responsibilities</div>
+    <div class="bullet-list">
+      <div class="bullet-item">
+        <span class="bullet-arrow">›</span>
+        <span class="bullet-text">Attend Psych Prom 2026 alongside Lead Villain (me)</span>
+      </div>
+      <div class="bullet-item">
+        <span class="bullet-arrow">›</span>
+        <span class="bullet-text">Look menacing yet glamorous at all times</span>
+      </div>
+      <div class="bullet-item">
+        <span class="bullet-arrow">›</span>
+        <span class="bullet-text">Assist with schemes, plots, and general villainy</span>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- requirements -->
+    <div class="section-title">Requirements</div>
+    <div class="bullet-list">
+      <div class="bullet-item">
+        <span class="bullet-arrow">›</span>
+        <span class="bullet-text">Prior henchman experience — verified ✓</span>
+      </div>
+      <div class="bullet-item">
+        <span class="bullet-arrow">›</span>
+        <span class="bullet-text">Must be available the evening of Psych Prom 2026</span>
+      </div>
+      <div class="bullet-item">
+        <span class="bullet-arrow">›</span>
+        <span class="bullet-text">Evil-adjacent disposition preferred, not required</span>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- benefits -->
+    <div class="section-title">Compensation &amp; benefits</div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="benefit-label">Primary</div>
+        <div class="benefit-value">One night of chaos &amp; fun</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-label">Secondary</div>
+        <div class="benefit-value">Snacks</div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-label">Additional</div>
+        <div class="benefit-value">Bragging rights</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-box">
+      <div class="cta-label">To apply</div>
+      <div class="cta-main">Badhenchman ting seeks badhenchwoman ting.</div>
+      <div class="cta-sub">Simply say yes.</div>
+      <a class="cta-btn" href="#" onclick="openModal(event)">Apply Now ›</a>
+    </div>
+
+    <div class="footer">VillainCorp™ is an equal-opportunity villain.</div>
+
+  </div>
+
+  <!-- modal -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <div class="modal-emoji">🎉</div>
+      <div class="modal-title">Application received.</div>
+      <div class="modal-body">
+        Your qualifications are unmatched.<br/>
+        Your experience is verified.<br/>
+        Your vibe is immaculate.<br/><br/>
+        <strong style="color:#fff;">Will you go to Psych Prom with me?</strong>
+      </div>
+      <button class="modal-close" onclick="closeModal()">Yes, obviously</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal(e) {
+      e.preventDefault();
+      document.getElementById('modal').classList.add('active');
+    }
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+    document.getElementById('modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  </script>
+
+</body>
+</html>
